@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import ComponentA from "./component/ComponentA";
+import { UserContext, UserProvider } from "./component/useContext";
 
 function App() {
+
+  // const a = useContext()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider value={UserContext._currentValue}>
+      <div className="App">
+        {console.log(UserContext._currentValue)}
+        <ComponentA />
+      </div>
+    </UserProvider>
   );
 }
 
