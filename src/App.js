@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { useState } from "react";
 import ComponentA from "./component/ComponentA";
 import { UserContext, UserProvider } from "./component/useContext";
 
 function App() {
 
   // const a = useContext()
+  const [context, setContext] = useState('default value')
 
   return (
-    <UserProvider value={UserContext._currentValue}>
+    <UserProvider value={[context, setContext]}>
       <div className="App">
-        {console.log(UserContext._currentValue)}
         <ComponentA />
       </div>
     </UserProvider>
